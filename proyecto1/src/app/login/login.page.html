@@ -1,0 +1,87 @@
+<ion-header  >
+  <ion-toolbar color="success">
+    <ion-title  align="center"><b>Login</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="success" class="auth-form">
+
+  <br>
+  <br>
+<div>
+  <h1 align="center"><b>Administrador UPSRJ</b></h1>
+</div>
+<ion-card>
+  <div align="center" class="ion-padding">
+      <img src="../assets/icon/up-logo.png" width="150px" height="150px">
+    </div>
+
+    <div id="preloader" align="center" style="display: none">
+        <img src="../assets/icon/animation.gif" alt="validando...">
+    </div>
+  </ion-card>
+    <br>
+
+    <div id="panellogin" align="center">
+      <ion-card >
+      <form>
+
+        <ion-item lines="full" >
+          <ion-label>User</ion-label>
+          <ion-input color="dark" id="user" placeholder="User" align="center" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label >Password</ion-label>
+          <ion-input type="password" color="dark" id="pass" placeholder="Password" align="center" required></ion-input>
+        </ion-item>
+        
+        
+        <ion-button (click)="Login()" id="botonlogin"  color="success" class="ion-margin">Login</ion-button>
+
+        
+
+        <ion-button (click)="ResetLogin()" id="botonresetlogin"  class="ion-margin" color="success">Reset</ion-button>
+
+        
+
+        <ion-button (click)="EsconderPanel()" id="botonesconder" expand="block" color="success" class="ion-margin">Forgot Password</ion-button>
+
+
+     </form>
+     </ion-card>
+    </div>
+
+    <div id="panelcontraseña" align="center">
+    <ion-card>  
+      <h1 align="center"><b>Validate Your Info</b></h1>
+      
+      <div class="list">
+
+        <ion-item>
+          <ion-label >User</ion-label>
+          <ion-input color="dark" id="usuariores" placeholder="User" align="center"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label >Email</ion-label>
+          <ion-input color="dark" id="correores" placeholder="Email" align="center"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label >Phone</ion-label>
+          <ion-input color="dark" id="telefonores"  placeholder="Phone" align="center"></ion-input>
+        </ion-item>
+      
+      </div> 
+
+
+        <br>
+
+      <ion-button (click)="RestablecerContrasena()" id="botonrestablecer"  color="success">Restore</ion-button>
+      
+      <ion-button (click)="MostrarPanel()" id="botonmostrar"  color="success">Back</ion-button>
+    </ion-card>
+    </div>
+
+</ion-content>

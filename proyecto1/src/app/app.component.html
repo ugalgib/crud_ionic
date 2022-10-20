@@ -1,0 +1,41 @@
+<ion-app>
+  <ion-menu side="start" menuId="fist" contentId="content1">
+    <ion-header >
+      <ion-toolbar color="success">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content >
+      <ion-list>
+        <ion-menu-toggle auto-hide="true">
+
+          <ion-item [routerLink]="'/home'" [routerDirection]="'forward'" id="home">
+            <ion-icon slot="start" [name]="'home'"></ion-icon>
+            <ion-label>ADMIN. CARRERAS</ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="'/profs'" [routerDirection]="'forward'" id="profs">
+            <ion-icon slot="start" [name]="'person-outline'"></ion-icon>
+            <ion-label>ADMIN. PROFESORES</ion-label>
+          </ion-item>
+
+          <ion-item [routerLink]="'/admins'" [routerDirection]="'forward'" id="admins">
+            <ion-icon slot="start" [name]="'people-outline'"></ion-icon>
+            <ion-label>ADMINISTRADORES</ion-label>
+          </ion-item>
+
+          <ion-item id="close" (click)="LogOut()">
+            <ion-icon slot="start" [name]="'close-circle'"></ion-icon>
+            <ion-label>Log Out</ion-label>
+          </ion-item>
+
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>

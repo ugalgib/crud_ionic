@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="success" align="center">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ADMINISTRADORES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+  <ion-item lines="full">
+    <ion-label>Name</ion-label>
+    <input type="text" id="id_u" hidden="true">
+    <input type="text" id="role" hidden="true">
+    <input type="text" id="type" hidden="true">
+    <input type="text" id="status" hidden="true">
+    <ion-input placeholder="Name" id="name" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full"> 
+    <ion-label>Last Name</ion-label>
+    <ion-input placeholder="Last Name" id="lastname" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label>M. Last Name</ion-label>
+    <ion-input placeholder="M. Last Name" id="lastnamem" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label>Phone</ion-label>
+    <ion-input placeholder="Phone" id="phone" color="dark" (focusout)="CheckPhone($event)" type="number" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full" >
+    <ion-label>Email</ion-label>
+    <ion-input placeholder="Email" id="email" color="dark" (focusout)="CheckEmail($event)" type="email" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label>User</ion-label>
+    <ion-input placeholder="User" id="user12" color="dark" (focusout)="CheckUser($event)" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label>Password</ion-label>
+    <ion-input placeholder="Password" id="password" color="dark" type="password" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <div id="preloader" align="center" style="display: none">
+        <img src="../assets/icon/animation.gif" alt="validando...">
+    </div>
+
+  <ion-button expand="block" (click)="SaveUser()" id="savebutton" color="success">Save</ion-button>
+  <ion-button expand="block" (click)="UpdateUser()" id="updatebutton" hidden="true" color="success">Update</ion-button>
+</ion-card>
+  <div align="center">
+    <h1>ADMINISTRADORES</h1>
+  </div>
+
+  <ion-item *ngFor="let u of users">
+    <ion-card align="center" color="success" style="width: 100%;">
+      <ion-label>
+
+        <ion-buttons>
+        
+          <ion-button (click)="EditUser(u.id_usuario)" id="editbutton" style="font-size: 20px;" >
+            <ion-icon name="create-sharp" color="primary"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="DeleteUsers(u.id_usuario)" id="deletebutton" style="font-size: 20px;">
+            <ion-icon name="trash-sharp" color="danger"></ion-icon>
+          </ion-button>
+
+        </ion-buttons> 
+
+        <p>Name</p>
+        <h1>{{u.nombre}}</h1>
+        <br>
+        <p>user</p>
+        <h1>{{u.username}}</h1>
+        <br>
+        <p>Phone</p>
+        <h1>{{u.telefono}}</h1>
+        <br>
+        <p>Email</p>
+        <h1>{{u.email}}</h1>  
+
+      </ion-label>
+
+      <br>
+      
+    </ion-card>
+      
+  </ion-item>
+
+</ion-content>

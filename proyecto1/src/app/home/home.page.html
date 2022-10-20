@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ADMIN. CARRERAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card class="ion-padding">
+  <ion-item lines="full" >
+    <ion-label>Name</ion-label>
+    <input type="text" id="id_c" hidden="true">
+    <ion-input placeholder="Name" id="namecarrera" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full"> 
+    <ion-label>Duración</ion-label>
+    <ion-input placeholder="Duración" id="duracion" color="dark" align="center" type="number" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label>Tipo De Carrera</ion-label>
+    <ion-input placeholder="Tipo De Carrera" id="tcarrera" color="dark" align="center" required >
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full" >
+    <ion-label>Phone</ion-label>
+    <ion-input placeholder="Phone" id="phonecarrera" color="dark" (focusout)="CheckPhone($event)" type="number" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  
+
+  <div id="preloader" align="center" style="display: none">
+        <img src="../assets/icon/animation.gif" alt="validando...">
+    </div>
+  
+  <ion-button expand="block" (click)="SaveCarrera()" id="savebuttoncarrera" color="success">Save</ion-button>
+  <ion-button expand="block" (click)="UpdateCarrera()" id="updatebuttoncarrera" hidden="true" color="success">Update</ion-button>
+</ion-card>
+  <div align="center">
+    <h1>CARRERAS</h1>
+  </div>
+
+  <ion-item *ngFor="let c of carreras">
+    <ion-card style="width: 100%;" align="center" color="success">
+      <ion-label>
+
+        <ion-buttons>
+        
+          <ion-button (click)="EditCarrera(c.id_carrera)" id="editbutton" style="font-size: 20px;">
+            <ion-icon name="create-sharp" color="primary"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="DeleteCarrera(c.id_carrera)" id="deletebutton" style="font-size: 20px;">
+            <ion-icon name="trash-sharp" color="danger"></ion-icon>
+          </ion-button>
+
+        </ion-buttons> 
+
+        <p>Name:</p>
+        <h1>{{c.namecarrera}}</h1>
+        <br>
+        <p>Duración:</p>
+        <h1>{{c.duracion}} Años</h1>
+        <br>
+        <p>Tipo De Carrera:</p>
+        <h1>{{c.tcarrera}}</h1>
+        <br>
+        <p>Numero</p>
+        <h1>{{c.phonecarrera}}</h1>
+        <br>
+
+      </ion-label>
+
+      <br>
+      
+    </ion-card>
+      
+  </ion-item>
+
+</ion-content>

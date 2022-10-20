@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ADMIN. PROFESORES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+  <ion-item lines="full">
+    <ion-label >Name</ion-label>
+    <input type="text" id="id_p" hidden="true">
+    <ion-input placeholder="Name" id="nameprof" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+  <ion-item lines="full" > 
+    <ion-label >Last Name</ion-label>
+    <ion-input placeholder="Last Name" id="lastnameprof" color="dark" align="center" required>
+    </ion-input>
+  </ion-item>
+
+
+  <ion-item lines="full">
+    <ion-label >Email</ion-label>
+    <ion-input placeholder="Email" id="emailprof" color="dark" (focusout)="CheckEmail($event)" type="email" align="center" required>
+    </ion-input>
+  </ion-item>
+
+
+  <div id="preloader" align="center" style="display: none">
+        <img src="../assets/icon/animation.gif" alt="validando...">
+    </div>
+
+  <ion-button expand="block" (click)="SaveProf()" id="savebuttonprof" color="success">Save</ion-button>
+  <ion-button expand="block" (click)="UpdateProf()" id="updatebuttonprof" hidden="true" color="success">Update</ion-button>
+</ion-card>
+
+  <div align="center">
+    <h1>PROFESORES</h1>
+  </div>
+
+  <ion-item *ngFor="let p of profesores">
+    <ion-card style="width: 100%;" align="center" color="success">
+      <ion-label>
+
+        <ion-buttons>
+        
+          <ion-button (click)="EditProf(p.id_prof)" id="editbutton" style="font-size: 20px;" >
+            <ion-icon name="create-sharp" color="primary"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="DeleteProf(p.id_prof)" id="deletebutton" style="font-size: 20px;">
+            <ion-icon name="trash-sharp" color="danger"></ion-icon>
+          </ion-button>
+
+        </ion-buttons> 
+
+        <p>Name</p>
+        <h1>{{p.nameprof}}</h1>
+        <br>
+        <p>Last Name</p>
+        <h1>{{p.lastnameprof}}</h1>
+        <br>
+        <p>Email</p>
+        <h1>{{p.emailprof}}</h1>  
+
+      </ion-label>
+
+      <br>
+      
+    </ion-card>
+      
+  </ion-item>
+
+</ion-content>
